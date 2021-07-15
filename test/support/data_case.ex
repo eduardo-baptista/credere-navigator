@@ -16,6 +16,8 @@ defmodule Navigator.DataCase do
 
   use ExUnit.CaseTemplate
 
+  alias Ecto.Adapters.SQL.Sandbox
+
   using do
     quote do
       alias Navigator.Repo
@@ -28,10 +30,10 @@ defmodule Navigator.DataCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Navigator.Repo)
+    :ok = Sandbox.checkout(Navigator.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Navigator.Repo, {:shared, self()})
+      Sandbox.mode(Navigator.Repo, {:shared, self()})
     end
 
     :ok
