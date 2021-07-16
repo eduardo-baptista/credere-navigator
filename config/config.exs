@@ -18,6 +18,12 @@ config :navigator, NavigatorWeb.Endpoint,
   pubsub_server: Navigator.PubSub,
   live_view: [signing_salt: "njQMA4yL"]
 
+# ecto migrations config
+config :navigator, Navigator.Repo,
+  migration_primary_key: [type: :binary_id],
+  migration_foreign_key: [type: :binary_id],
+  migration_timestamps: [type: :utc_datetime]
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
