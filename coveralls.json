@@ -1,0 +1,14 @@
+{
+    "skip_files": [
+      "test/support",
+      "lib/navigator/application.ex",
+      "lib/navigator/repo.ex",
+      "lib/navigator_web.ex",
+      "lib/navigator_web/channels/user_socket.ex",
+      "lib/navigator_web/endpoint.ex",
+      "lib/navigator_web/gettext.ex",
+      "lib/navigator_web/router.ex",
+      "lib/navigator_web/telemetry.ex",
+      "lib/navigator_web/views/error_helpers.ex"
+    ]
+}
