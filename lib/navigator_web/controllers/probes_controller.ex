@@ -12,4 +12,12 @@ defmodule NavigatorWeb.ProbesController do
       |> render("create.json", probe: probe)
     end
   end
+
+  def show(conn, %{"id" => id}) do
+    with {:ok, probe} <- Navigator.get_probe_by_id(id) do
+      conn
+      |> put_status(:ok)
+      |> render("probe.json", probe: probe)
+    end
+  end
 end
