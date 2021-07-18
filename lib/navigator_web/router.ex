@@ -3,6 +3,7 @@ defmodule NavigatorWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug NavigatorWeb.Plugs.UUIDValidator
   end
 
   scope "/api", NavigatorWeb do
