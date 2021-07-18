@@ -5,5 +5,13 @@ defmodule Navigator.Factory do
 
   use ExMachina.Ecto, repo: Navigator.Repo
 
+  alias Navigator.Probe
+
+  def probe_factory do
+    %Probe{
+      name: "New Horizons"
+    }
+  end
+
   def probe_create_params_factory, do: %{name: "New Horizons"}
 end
