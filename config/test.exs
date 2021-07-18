@@ -18,5 +18,10 @@ config :navigator, NavigatorWeb.Endpoint,
   http: [port: 4002],
   server: false
 
+# Configures max dimensions to move the probes
+config :navigator, :max_dimensions,
+  x: 4,
+  y: 4
+
 # Print only warnings and errors during test
 config :logger, level: :warn

@@ -3,10 +3,18 @@ defmodule NavigatorWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug NavigatorWeb.Plugs.UUIDValidator
   end
 
   scope "/api", NavigatorWeb do
     pipe_through :api
+
+    post "/probes", ProbesController, :create
+    get "/probes/:id", ProbesController, :show
+
+    post "/probes/:id/move", ProbesMoveController, :create
+
+    post "/probes/:id/reset", ProbesResetController, :create
   end
 
   # Enables LiveDashboard only for development

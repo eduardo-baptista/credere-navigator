@@ -10,6 +10,11 @@ use Mix.Config
 config :navigator,
   ecto_repos: [Navigator.Repo]
 
+# Configures max dimensions to move the probes
+config :navigator, :max_dimensions,
+  x: 4,
+  y: 4
+
 # Configures the endpoint
 config :navigator, NavigatorWeb.Endpoint,
   url: [host: "localhost"],
@@ -17,6 +22,12 @@ config :navigator, NavigatorWeb.Endpoint,
   render_errors: [view: NavigatorWeb.ErrorView, accepts: ~w(json), layout: false],
   pubsub_server: Navigator.PubSub,
   live_view: [signing_salt: "njQMA4yL"]
+
+# ecto migrations config
+config :navigator, Navigator.Repo,
+  migration_primary_key: [type: :binary_id],
+  migration_foreign_key: [type: :binary_id],
+  migration_timestamps: [type: :utc_datetime]
 
 # Configures Elixir's Logger
 config :logger, :console,
