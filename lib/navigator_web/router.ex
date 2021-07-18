@@ -7,6 +7,8 @@ defmodule NavigatorWeb.Router do
 
   scope "/api", NavigatorWeb do
     pipe_through :api
+
+    post "/probes", ProbesController, :create
   end
 
   # Enables LiveDashboard only for development
