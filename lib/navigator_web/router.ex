@@ -10,6 +10,8 @@ defmodule NavigatorWeb.Router do
 
     post "/probes", ProbesController, :create
     get "/probes/:id", ProbesController, :show
+
+    post "/probes/:id/move", ProbesMoveController, :create
   end
 
   # Enables LiveDashboard only for development
