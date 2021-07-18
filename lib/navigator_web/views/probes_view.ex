@@ -15,4 +15,18 @@ defmodule NavigatorWeb.ProbesView do
       }
     }
   end
+
+  def render("probe.json", %{probe: probe}) do
+    %{
+      probe: %{
+        direction: probe.direction,
+        id: probe.id,
+        inserted_at: probe.inserted_at,
+        name: probe.name,
+        updated_at: probe.updated_at,
+        x: probe.x,
+        y: probe.y
+      }
+    }
+  end
 end

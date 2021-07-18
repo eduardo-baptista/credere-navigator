@@ -29,4 +29,25 @@ defmodule NavigatorWeb.ProbesViewTest do
              }
            } = response
   end
+
+  test "renders probe.json" do
+    # Arrange
+    probe = insert(:probe)
+
+    # Act
+    response = render(ProbesView, "probe.json", probe: probe)
+
+    # Assert
+    assert %{
+             probe: %{
+               direction: :D,
+               id: _,
+               inserted_at: _,
+               name: "New Horizons",
+               updated_at: _,
+               x: 0,
+               y: 0
+             }
+           } = response
+  end
 end
